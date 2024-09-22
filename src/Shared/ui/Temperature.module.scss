@@ -1,0 +1,42 @@
+
+.temperature {
+  display: flex;
+  justify-content: space-between;
+  
+  .main {
+    display: flex;
+    justify-content: start;
+    .temp {
+      font-size: 48px;
+      font-weight: 500;
+      &::after {
+        content: '\00B0';
+        font-weight: 500;
+      }
+    }
+    .subtemp {
+      .min::after,
+      .max::after {
+        content: '\00B0';
+        font-weight: 400;
+      }
+    }
+  }
+  
+  .sub {
+    display: flex;
+    justify-content: start;
+
+    
+    .description {
+      color: #00000093;
+      .feels {
+        color: #000;
+        &::after {
+          content: '\00B0';
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
