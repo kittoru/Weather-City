@@ -3,7 +3,7 @@ import styles from './Card.module.scss'
 
 
 export const Card = () => {
-  const city = "Омск";
+  const city = "Таганрог";
   return ( 
     <div className={styles.card}>
         <div className={styles.top}>

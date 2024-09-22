@@ -19,9 +19,26 @@ body {
 }
 
 input {
+  outline: 0;
+  border: 0 solid transparent;
   background: transparent;
 }
 
 ul {
   list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: 0 solid transparent;
+  background: transparent;
+}
+
+.container {
+  max-width: 500px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
