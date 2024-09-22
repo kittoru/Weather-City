@@ -1,0 +1,17 @@
+
+
+.info {
+  display: flex;
+  justify-content: space-between;
+
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+  }
+
+  .wind {
+    margin-left: 3px;
+  }
+}

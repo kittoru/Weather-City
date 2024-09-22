@@ -2,10 +2,10 @@
 .card {
   width: 430px;
   display: flex;
+  flex-direction: column;
+  gap: 30px;
   padding: 30px;
   border-radius: 20px;
   background-color: #ffffff;
-  .top {
-    display: flex;
-  }
+  
 }
