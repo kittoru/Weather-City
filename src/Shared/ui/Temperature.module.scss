@@ -9,9 +9,11 @@
     align-items: center;
     
     .temp {
+      display: flex;
+      align-items: center;
       font-size: 48px;
       font-weight: 600;
-      &::after {
+      .text::after {
         content: '\00B0';
         font-weight: 600;
       }

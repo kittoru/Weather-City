@@ -1,20 +1,20 @@
 import { Icon } from './Icon';
 import styles from './Info.module.scss';
 
-export const Info = ( { speed, deg,  humidity, pressure } ) => {
+export const Info = ( { data } ) => {
   return ( 
     <ul className={styles.info}>
       <li className={styles.item}>
         <Icon id='wind'/>
-        <span className={styles.wind}>{speed} м/с, {deg}</span>
+        <span className={styles.wind}>{data.windSpeed} m/s </span>
       </li>
       <li className={styles.item}>
         <Icon id="humidity" />
-        <span>{humidity}%</span>
+        <span>{data.humidity}%</span>
       </li>
       <li className={styles.item}>
         <Icon id='pressure' />
-        <span>{pressure} мм рт. ст.</span>
+        <span>{Math.round(data.pressure * 0.75)} mm Hg</span>
       </li>
     </ul>
    );
