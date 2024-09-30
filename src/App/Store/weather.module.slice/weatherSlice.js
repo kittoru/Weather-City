@@ -12,6 +12,7 @@ export const fetchCity = createAsyncThunk('weather/fetchCity', async (city, {thu
       lat: res.data[0].lat,
       lon: res.data[0].lon,
     }
+    console.log(coord)
     dispatch(fetchWeather(coord));
     return coord;
   } catch(err) {
@@ -22,9 +23,10 @@ export const fetchCity = createAsyncThunk('weather/fetchCity', async (city, {thu
 export const fetchWeather = createAsyncThunk('weather/fetchWeather', async ({lat, lon}, thunkAPI) => {
   try {
     const res = await axios(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIkeyWeather}&units=metric`);
-
+    console.log(res.status);
     return res.data;
   } catch (err) {
+    console.log(err.message)
     return thunkAPI.rejectWithValue(err);
   }
 });
@@ -39,15 +41,15 @@ export const weatherSlice = createSlice({
     status: '',
   },
   extraReducers: (builder) => {
-    // builder.addCase(fetchCity.fulfilled, (state, { payload }) => {
-    //   state.data.coord.lat = payload.lat;
-    //   state.data.coord.lon = payload.lon;
-    // });
+    builder.addCase(fetchCity.rejected, (state) => {
+      state.isLoading = false;
+      state.state = "NoName";
+    });
     builder.addCase(fetchWeather.pending, (state) => {
       state.isLoading = false;
-    })
+      state.status = 'Loading';
+    });
     builder.addCase(fetchWeather.fulfilled, (state, { payload }) => {
-      
       const info = {
       name: payload.name,
       main: {
@@ -68,11 +70,12 @@ export const weatherSlice = createSlice({
      };
      state.data = info;
      state.isLoading = true;
-     state.status = 'OK'
+     state.status = 'OK';
      console.log(state.data)
     });
-    builder.addCase(fetchWeather.rejected, (state) => {
+    builder.addCase(fetchWeather.rejected, (state, {payload}) => {
       state.isLoading = false;
+      state.status = 'Error';
     });
   }
 });
