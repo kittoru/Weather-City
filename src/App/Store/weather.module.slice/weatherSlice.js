@@ -76,6 +76,7 @@ export const weatherSlice = createSlice({
     builder.addCase(fetchWeather.rejected, (state, {payload}) => {
       state.isLoading = false;
       state.status = 'Error';
+      console.log('error')
     });
   }
 });
