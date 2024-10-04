@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 export const Card = () => {
   const info = useSelector(state => state.weather);
-  console.log(info.data.name)
 
   return ( 
     <div className={styles.card}>
