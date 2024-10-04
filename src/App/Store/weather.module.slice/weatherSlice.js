@@ -34,9 +34,7 @@ export const fetchWeather = createAsyncThunk('weather/fetchWeather', async ({lat
 export const weatherSlice = createSlice({
   name: 'weather',
   initialState: {
-    data: {
-      
-    },
+    data: {},
     isLoading: false,
     status: '',
   },
