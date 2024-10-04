@@ -25,7 +25,6 @@ export const Home = () => {
     <div className="container">
       <div className={styles.home}>
       <Form  />
-      {/* {loading && status === 'OK'? <Card /> : <p className={styles.text}>Please enter the city name in the field.</p>} */}
       {result}
       
       </div>
