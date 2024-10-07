@@ -46,4 +46,12 @@
       background-color: #cecece;
     }
   }
+  @media (max-width: 550px) {
+    .button {
+      display: none;
+    }
+    .search {
+      max-width: 310px;
+    }
+  }
 }

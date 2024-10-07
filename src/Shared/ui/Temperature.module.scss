@@ -54,4 +54,17 @@
       }
     }
   }
+
+  @media (max-width: 550px) {
+    .main {
+      .temp {
+      font-size: 40px;
+      & .icon {
+        width: 80px;
+        height: 80px;
+      }
+      }
+    }
+    
+  }
 }
